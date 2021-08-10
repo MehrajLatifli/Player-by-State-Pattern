@@ -1,0 +1,19 @@
+﻿<Application x:Class="Player_by_State_Pattern.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Player_by_State_Pattern"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="MenuDictionary.xaml"></ResourceDictionary>
+
+                <ResourceDictionary Source="ListboxtItemDictionary.xaml"></ResourceDictionary>
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
