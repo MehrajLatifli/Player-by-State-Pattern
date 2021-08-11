@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace Player_by_State_Pattern.State_Pattern
@@ -15,5 +16,7 @@ namespace Player_by_State_Pattern.State_Pattern
         void PauseButton(MediaPlayer mediaPlayer, ObservableCollection<Files> FileList, MainWindow mainWindow);
         void StopButton(MediaPlayer mediaPlayer, ObservableCollection<Files> FileList, MainWindow mainWindow);
         void AddButton(MediaPlayer mediaPlayer, string location, MainWindow mainWindow);
+
+        void TimePlayer(MediaPlayer mediaPlayer, TimeSpan timeSpan, MainWindow mainWindow);
     }
 }

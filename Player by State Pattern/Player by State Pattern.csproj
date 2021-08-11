@@ -64,6 +64,7 @@
     <Compile Include="State Pattern\Player.cs" />
     <Compile Include="State Pattern\PlayState.cs" />
     <Compile Include="State Pattern\StopState.cs" />
+    <Compile Include="State Pattern\TimeState.cs" />
     <Page Include="ListboxtItemDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

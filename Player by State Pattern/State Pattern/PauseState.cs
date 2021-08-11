@@ -41,5 +41,10 @@ namespace Player_by_State_Pattern.State_Pattern
         {
             MessageBox.Show($"PauseState can not control Add");
         }
+
+        public void TimePlayer(MediaPlayer mediaPlayer, TimeSpan timeSpan, MainWindow mainWindow)
+        {
+            MessageBox.Show($"PauseState can not control Time");
+        }
     }
 }

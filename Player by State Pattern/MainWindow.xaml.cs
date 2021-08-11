@@ -362,20 +362,24 @@ namespace Player_by_State_Pattern
             {
                 if (mediaPlayer.Source != null)
                 {
+                    TimeSpan ts = new TimeSpan();
 
-                    TimeLabel.Content = string.Format("{0}      <==>      {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+                    Player play = new Player(new TimeState(mediaPlayer));
+                    play.Time(mediaPlayer, ts,this);
+
+                    //TimeLabel.Content = string.Format("{0}      <==>      {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
 
 
-                    TimeSlider.Visibility = Visibility.Visible;
+                    //TimeSlider.Visibility = Visibility.Visible;
 
-                    TimeSpan ts = mediaPlayer.NaturalDuration.TimeSpan;
+                    //TimeSpan ts = mediaPlayer.NaturalDuration.TimeSpan;
 
-                    TimeSlider.Minimum = 0;
-                    TimeSlider.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
-                    TimeSlider.SmallChange = 1;
-                    TimeSlider.LargeChange = Math.Min(10, ts.Seconds / 10);
+                    //TimeSlider.Minimum = 0;
+                    //TimeSlider.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+                    //TimeSlider.SmallChange = 1;
+                    //TimeSlider.LargeChange = Math.Min(10, ts.Seconds / 10);
 
-                    TimeSlider.Value = mediaPlayer.Position.TotalSeconds;
+                    //TimeSlider.Value = mediaPlayer.Position.TotalSeconds;
                 }
 
             }

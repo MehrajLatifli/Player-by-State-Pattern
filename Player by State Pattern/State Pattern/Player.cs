@@ -36,5 +36,10 @@ namespace Player_by_State_Pattern.State_Pattern
         {
             _State.StopButton(mediaPlayer, FileList, mainWindow);
         }
+
+        public void Time(MediaPlayer mediaPlayer, TimeSpan timeSpan, MainWindow mainWindow)
+        {
+            _State.TimePlayer(mediaPlayer, timeSpan, mainWindow);
+        }
     }
 }
