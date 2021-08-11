@@ -28,7 +28,7 @@ namespace Player_by_State_Pattern
         public ObservableCollection<Files> FileList { get; set; }
         public ObservableCollection<Files> nList = new ObservableCollection<Files>();
 
-
+         private bool _isDragging = false;
 
 
 
@@ -363,11 +363,19 @@ namespace Player_by_State_Pattern
                 if (mediaPlayer.Source != null)
                 {
 
-                    TimeLabel.Content = string.Format("{0} <==> {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
-                    MusicNameLabel.Content = string.Format("{0}", FileList.ElementAt(Listbox1.SelectedIndex).FileShortName);
+                    TimeLabel.Content = string.Format("{0}      <==>      {1}", mediaPlayer.Position.ToString(@"mm\:ss"), mediaPlayer.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
 
 
+                    TimeSlider.Visibility = Visibility.Visible;
 
+                    TimeSpan ts = mediaPlayer.NaturalDuration.TimeSpan;
+
+                    TimeSlider.Minimum = 0;
+                    TimeSlider.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalSeconds;
+                    TimeSlider.SmallChange = 1;
+                    TimeSlider.LargeChange = Math.Min(10, ts.Seconds / 10);
+
+                    TimeSlider.Value = mediaPlayer.Position.TotalSeconds;
                 }
 
             }
@@ -377,6 +385,18 @@ namespace Player_by_State_Pattern
 
             }
 
+        }
+
+
+        private void TimeSlider_DragStarted(object sender, System.Windows.Controls.Primitives.DragStartedEventArgs e)
+        {
+            _isDragging = true;
+        }
+
+        private void TimeSlider_DragCompleted(object sender, System.Windows.Controls.Primitives.DragCompletedEventArgs e)
+        {
+            _isDragging = false;
+            mediaPlayer.Position = TimeSpan.FromSeconds(TimeSlider.Value);
         }
     }
 }
